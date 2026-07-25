@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img {
+    max-width: 100%;   /* 图片宽度不超过父容器宽度 */
+    height: auto;      /* 高度按比例自动缩放 */
+}
+.all{
+    display: flex;
+    height: 100vh;
+}
+#left_playground{
+   flex: 20%;
+    background-color: #4a8fd4;
+    display: flex;
+    flex-direction: column;
+}
+#right_playground{
+   flex: 80%;
+    background-color: #4688ce;
+}
+#ceshang{
+    flex: 10%;
+    background-color: aquamarine;
+}
+#cexia{
+    flex: 90%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+.shiyong{
+    display: none;
+}
+.shiyong.active{
+    display: block;
+}

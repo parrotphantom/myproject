@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 · 苍穹外卖</title>
+    <link rel="stylesheet" href="/signup.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-card">
+            <div class="signup-title">✨ 注册</div>
+            <div class="signup-subtitle">加入苍穹外卖，开启美食之旅</div>
+
+            <form action="/api/signup" method="post">
+                <div class="form-group">
+                    <label>👤 用户名</label>
+                    <input name="username" type="text" placeholder="请输入用户名" required>
+                </div>
+
+                <div class="form-group">
+                    <label>📧 邮箱</label>
+                    <input name="email" type="email" placeholder="请输入邮箱地址" required>
+                </div>
+
+                <div class="form-group">
+                    <label>🔒 密码</label>
+                    <input name="password" type="password" placeholder="请设置密码（至少6位）" required>
+                </div>
+
+                <button type="submit" class="signup-btn">立 即 注 册</button>
+            </form>
+
+            <div class="signup-footer">
+                已有账号？<a href="/api/login">去登录 →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

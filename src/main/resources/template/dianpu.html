@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/dianpu.css">
+    <script src="/dainpu.js" defer></script>
+
+</head>
+<body>
+     <div class="all">
+         <div id="left_playground">
+             <div id="ceshang">
+                 <img id="touxiang" src="/Picture/图3.png">
+                 <span id="mingcheng" th:text="${username}">用户名</span>
+
+             </div>
+             <div id="cexia">
+                 <h1>导航菜单</h1>
+                 <button data-id="box1">员工信息</button>
+                 <button data-id="box2">菜品信息</button>
+                 <button data-id="box3">营收统计</button>
+             </div>
+
+         </div>
+         <div id="right_playground">
+             <table border="1">
+                 <thead>
+                 <tr>
+                     <th>员工id</th>
+                     <th>员工姓名</th>
+                     <th>员工工号</th>
+                     <th>员工身份证号</th>
+                 </tr>
+                 </thead>
+             <tr th:each="emp :${allemployee}">
+                 <td th:text="${emp.getId()}"></td>
+                 <td th:text="${emp.getEmployeename()}"></td>
+                 <td th:text="${emp.getIdemployee()}"></td>
+                 <td th:text="${emp.getIdnumber()}"></td>
+             </tr>
+                 <p th:text="'当前员工人数'+${#lists.size(allemployee)}+'人'"></p>
+             </table>
+
+         </div>
+         </div>
+     </div>
+</body>
+</html>
