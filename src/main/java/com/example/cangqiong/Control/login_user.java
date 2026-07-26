@@ -7,18 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.GeneratedValue;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
 @RequestMapping("/api")
-public class login {
+public class login_user {
     @Autowired
     private UserService userService;
-    @GetMapping("/login")
+    @GetMapping("/login_user")
     public String loginname(){return  "login";};
-    @PostMapping("/login")
+    @PostMapping("/login_user")
     public String login1(
             @RequestParam String username,
             @RequestParam String password,

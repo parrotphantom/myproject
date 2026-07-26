@@ -2,6 +2,7 @@ package com.example.cangqiong.Control;
 import com.example.cangqiong.Service.UserService;
 import com.example.cangqiong.entity.User;
 import com.example.cangqiong.repository.UserRepository;
+import com.example.cangqiong.uitity.Check;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import java.io.IOException;
 public class signup {
     @Autowired
     private UserService userService;
+    private Check check;
     @GetMapping("/signup")
     public String signupname(){return "signup";};
     @PostMapping("/signup")
@@ -27,17 +29,10 @@ public class signup {
             Model model,
             HttpServletResponse response
     ) throws IOException {
-        if (username == null || username.length() < 2 || username.length() > 20) {
-            return pullText(response,"用户名长度需在2~20位");
-        }
-        // 邮箱：简单判断是否包含 @ 和 .
-        if (email == null || !email.contains("@") || !email.contains(".")) {
-            return pullText(response,"邮箱格式错误");
-        }
-        // 密码：6~30位
-        if (password == null || password.length() < 6 || password.length() > 30) {
-            return pullText(response,"密码长度需在6~30位");
-        }
+        if (!check.check_name(username))model.addAttribute("usernameif","false");
+        if (!check.check_email(email))model.addAttribute("emailif","false");
+        if (!check.check_password(password))model.addAttribute("passwordif","false");
+
         User user = new User(username, email, password);
         if (userService.findUser(user)){
             return pullText(response,"该账户已注册");
