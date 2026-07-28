@@ -1,21 +1,19 @@
 package com.example.cangqiong.Control;
 import com.example.cangqiong.Service.UserService;
 import com.example.cangqiong.entity.User;
-import com.example.cangqiong.repository.UserRepository;
 import com.example.cangqiong.uitity.Check;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.HttpMediaTypeException;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.GeneratedValue;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/api")
-public class signup {
+public class signup_user {
     @Autowired
     private UserService userService;
     private Check check;
@@ -29,23 +27,26 @@ public class signup {
             Model model,
             HttpServletResponse response
     ) throws IOException {
-        if (!check.check_name(username))model.addAttribute("usernameif","false");
-        if (!check.check_email(email))model.addAttribute("emailif","false");
-        if (!check.check_password(password))model.addAttribute("passwordif","false");
-
+        Map<String,String> errors = check.allCheck_user(username,email,password);
+        if (!errors.isEmpty()){
+            model.addAttribute(errors);
+            return "signup";
+        }
         User user = new User(username, email, password);
         if (userService.findUser(user)){
-            return pullText(response,"该账户已注册");
+            model.addAttribute("response","账户已注册");
+            return "signup";
         }
         userService.saveUser(user);
-        return pullText(response,"注册成功");
+            model.addAttribute("response","注册成功");
+            return  "signup";
 
     }
-    private String pullText(HttpServletResponse response, String message) throws IOException {
+    /*private String pullText(HttpServletResponse response, String message) throws IOException {
         response.setContentType("text/plain;charset:UTF-8");
         response.getWriter().write(message);
         response.getWriter().flush();
         return null;
 
-    }
+    }*/
 }

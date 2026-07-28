@@ -23,19 +23,25 @@ public class Employee {
     //员工姓名
     @Column(nullable = false,length = 20)
     private   String employeename;
+    @Column(nullable = false, length = 20)
+    private String password;
     public Employee(){
         this.idnumber =null;
         this.idemployee = null;
         this.employeename = null;
+        this.password = null;
     };
     public Employee(String idemployee,
                     String idnumber,
-                    String employeename){
+                    String employeename,
+                    String password){
         this.employeename = employeename;
         this.idemployee = idemployee;
         this.idnumber = idnumber;
+        this.password = password;
     };
     public long getId(){return  this.id;}
+    public String getPassword(){return this.password;}
     public String getIdemployee(){return this.idemployee;}
     public String getIdnumber(){return  this.idnumber;}
     public String getEmployeename(){return  this.employeename;}
