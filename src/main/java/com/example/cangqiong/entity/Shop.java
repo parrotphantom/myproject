@@ -10,7 +10,7 @@ import javax.persistence.*;
         }
 
 )
-public class shop {
+public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,12 +20,12 @@ public class shop {
     //店铺名称
     @Column(nullable = false ,length = 10)
     private String name_shop;
-    public shop(){
+    public Shop(){
         this.ID_shop =null;
         this.name_shop = null;
 
     }
-    public shop(String ID_shop,
+    public Shop(String ID_shop,
                 String Name_shop){
         this.ID_shop = ID_shop;
         this.name_shop = Name_shop;

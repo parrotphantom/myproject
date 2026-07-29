@@ -16,7 +16,7 @@ public class EmpolyeeService {
         return employeerepositroy.save(employee);
     }
     public Employee findEmployee(Employee employee){
-        return employeerepositroy.findByEmployeenameOrIdemployeeOrIdnumber(employee.getEmployeename(),employee.getIdemployee(),employee.getIdnumber());
+        return employeerepositroy.findByEmployeenameOrIdemployeeOrIdnumber(employee.getEmployeename(),employee.getIdemployee(),employee.getIdnumber() );
     }
     public List<Employee> pullAllEmployee(){
         return employeerepositroy.findAll();

@@ -49,6 +49,6 @@ public class siginup_employee {
         if (!emp.getPassword().equals(emp1.getPassword())){
             model.addAttribute("password1","账号或密码错误");
         }
-        return  "yes";
+        return  "yes"; //没用完成，简单的一个无意义标签;
     }
 }
