@@ -1,11 +1,10 @@
 package com.example.cangqiong.repository;
 
-import com.example.cangqiong.entity.User;
+import com.example.cangqiong.entity.Shop;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface ShopRepositroy extends JpaRepository<Shop,Long> {
     long count();
-    User findByEmailOrUsername(String stt0,String stt1);
 }

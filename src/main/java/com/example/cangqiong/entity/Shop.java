@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     //店铺编号
     @Column(nullable = false ,length = 10)
     private String ID_shop;

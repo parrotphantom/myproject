@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 public class Food {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(updatable = false, length = 30)
     private String FoodName;
     //菜品单价 精确到分

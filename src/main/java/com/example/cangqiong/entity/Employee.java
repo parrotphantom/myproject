@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     //员工工号
     @Column(nullable = false,length = 10)
     private String idemployee;
@@ -40,6 +40,7 @@ public class Employee {
         this.idnumber = idnumber;
         this.password = password;
     };
+    public void setidemployee(String idemployee){this.idemployee = idemployee;}
     public long getId(){return  this.id;}
     public String getPassword(){return this.password;}
     public String getIdemployee(){return this.idemployee;}

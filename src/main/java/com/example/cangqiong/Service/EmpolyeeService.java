@@ -12,11 +12,15 @@ import java.util.List;
 public class EmpolyeeService {
     @Autowired
     private EmployeeRepositroy employeerepositroy;
+    public long getcount(){return employeerepositroy.count();}
     public Employee saveEmployee(Employee employee){
         return employeerepositroy.save(employee);
     }
     public Employee findEmployee(Employee employee){
         return employeerepositroy.findByEmployeenameOrIdemployeeOrIdnumber(employee.getEmployeename(),employee.getIdemployee(),employee.getIdnumber() );
+    }
+    public Employee findEmployeeByidumber(Employee employee){
+        return employeerepositroy.findByIdnumber(employee.getIdnumber());
     }
     public List<Employee> pullAllEmployee(){
         return employeerepositroy.findAll();

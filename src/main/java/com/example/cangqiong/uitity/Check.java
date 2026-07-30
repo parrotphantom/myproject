@@ -9,20 +9,28 @@ import java.util.function.Predicate;
 @Component
 public class Check {
     public boolean checkName(String name){
-         return name !=null
+         return  name !=null
+                 && check_empty(name)
                  && name.length() <= 10
                  && name.length() >=2;
     }
     public boolean check_email(String email){
-        return email !=null && email.contains("@") && email.contains(".");
+        return email !=null
+                && check_empty(email)
+                && email.contains("@")
+                && email.contains(".");
 
     }
     public boolean check_password(String password){
         String regex = "^[a-zA-Z0-9]+$";
-        return password.matches(regex);
+        return  password !=null
+                && check_empty(password)
+                && password.matches(regex);
     }
+    public  boolean check_idnumber(String idnumber){return idnumber !=null
+                                                                      && idnumber.matches("^[1-9]\\d{16}[0-9Xx]$")}
     public  boolean check_id(String id){
-         return id.length() == 15;
+         return id.length() == 8;
     }
     public  boolean check_empty(String value){
         return value != null && value.isEmpty();
