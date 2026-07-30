@@ -28,7 +28,7 @@ public class Check {
                 && password.matches(regex);
     }
     public  boolean check_idnumber(String idnumber){return idnumber !=null
-                                                                      && idnumber.matches("^[1-9]\\d{16}[0-9Xx]$")}
+                                                                      && idnumber.matches("^[1-9]\\d{16}[0-9Xx]$");}
     public  boolean check_id(String id){
          return id.length() == 8;
     }
