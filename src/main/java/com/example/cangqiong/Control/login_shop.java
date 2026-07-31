@@ -1,5 +1,6 @@
 package com.example.cangqiong.Control;
 
+import com.example.cangqiong.repository.FoodRepostroy;
 import com.example.cangqiong.uitity.Check;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,15 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/api")
 public class   login_shop {
     @Autowired
+    private FoodRepostroy foodRepostroy;
     private Check check;
     @GetMapping("/loginshop")
     public String loginshop(){return "login_shop";}//未创建}
     @PostMapping("/loginshop")
     public  String loginshop1(
-            @RequestParam String idemployee,
+            @RequestParam String idshop,
             @RequestParam String password,
             Model model){
-
+        //check.validate(idemployee,check::check_id,"idemployee","");
         return "yes";
         }
 

@@ -20,6 +20,9 @@ public class Food {
     //最大9999999999.99
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
+
+    @Column(length = 20)
+    private  String idShop;
     //代表是否上架
     @Column()
     private Integer status;
@@ -28,12 +31,15 @@ public class Food {
         this.FoodName = null;
         this.price = BigDecimal.ZERO;
         this.status = 0;
+        this.idShop = null;
     }
-    public Food(String foodName,BigDecimal price,Integer status ){
+    public Food(String foodName,BigDecimal price,Integer status,String idShop ){
         this.FoodName = foodName;
         this.price = price;
         this.status = status;
+        this.idShop = idShop;
     }
+    public String getIdShop() {return idShop;}
     public Integer getStatus() {
         return status;
     }
@@ -43,6 +49,7 @@ public class Food {
     public BigDecimal getPrice() {
         return price;
     }
+    public void setIdShop(String idShop){this.idShop = idShop;}
     public void setStatus(Integer status) {
         this.status = status;
     }

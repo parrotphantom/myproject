@@ -15,22 +15,43 @@ public class Shop {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //店铺编号
-    @Column(nullable = false ,length = 10)
-    private String ID_shop;
+    @Column(nullable = false )
+    private long ID_shop;
     //店铺名称
     @Column(nullable = false ,length = 10)
     private String name_shop;
+    //代表是否正在运营
+    private Integer status;
+    //注册手机号
+    @Column(nullable = false,length = 11 )
+    private String phonenumber;
+    //密码
+    @Column(nullable = false,length = 20)
+    private String password;
     public Shop(){
-        this.ID_shop =null;
+        this.ID_shop =0;
         this.name_shop = null;
+        this.status = 0;
+        this.phonenumber =null;
+        this.password = null;
 
     }
-    public Shop(String ID_shop,
-                String Name_shop){
+    public Shop(long ID_shop,
+                String Name_shop,
+                Integer status,
+                String phonenumber,
+                String password){
         this.ID_shop = ID_shop;
         this.name_shop = Name_shop;
+        this.status = status;
+        this.phonenumber = phonenumber;
+        this.password = password;
+
     }
+    public String getPhonenumber(){return this.phonenumber;}
     public long getId(){return this.id;}
-    public String getID_shop(){return this.ID_shop;}
+    public Integer getStatus(Integer status){return this.status; }
+    public void setStatus(Integer status){this.status =status;}
+    public long getID_shop(){return this.ID_shop;}
     public String getName_shop(){return  this.name_shop;}
 }
