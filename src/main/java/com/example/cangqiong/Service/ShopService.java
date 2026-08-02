@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class ShopService {
     @Autowired
     private ShopRepositroy shopRepositroy;
-    public shopBYnameshop(Shop shop){return shopRepositroy.;}
-
+    public Shop shopfindByphone(Shop shop){return shopRepositroy.findByPhonenumber(shop.getPhonenumber());}
+    public void shopsave(Shop shop){shopRepositroy.save(shop);}
+    public long shopcount(){return shopRepositroy.count();}
 }

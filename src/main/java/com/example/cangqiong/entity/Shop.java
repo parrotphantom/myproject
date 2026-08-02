@@ -48,6 +48,11 @@ public class Shop {
         this.password = password;
 
     }
+
+    public void setID_shop(long ID_shop) {
+        this.ID_shop = ID_shop;
+    }
+
     public String getPhonenumber(){return this.phonenumber;}
     public long getId(){return this.id;}
     public Integer getStatus(Integer status){return this.status; }

@@ -3,7 +3,7 @@ package com.example.cangqiong.Control;
 import com.example.cangqiong.Service.ShopService;
 import com.example.cangqiong.entity.Shop;
 import com.example.cangqiong.uitity.Check;
-import jdk.internal.classfile.impl.BufferedCodeBuilder;
+//import jdk.internal.classfile.impl.BufferedCodeBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.Year;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,9 +39,9 @@ public class signup_shop {
             model.addAllAttributes(map);
             return "lognup";
         }
-        Shop shop = new Shop(0,shopName,1,phonenumber,password);
-
-
+        Shop shop = new Shop(0,shopName,0,phonenumber,password);
+        long idshop = Year.now().getValue() + shopService.shopcount();
+        shop.setID_shop(idshop);
         return "yes";
     }
 }

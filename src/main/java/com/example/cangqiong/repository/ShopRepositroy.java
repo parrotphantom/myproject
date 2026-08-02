@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ShopRepositroy extends JpaRepository<Shop,Long> {
     long count();
+
+    Shop findByPhonenumber(String phonenumber);
 }
